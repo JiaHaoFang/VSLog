@@ -1,0 +1,27 @@
+{
+  "name": "VSLog",
+  "version": "0.1.0",
+  "summary": "VeSync内部使用的日志库，基于CocoaLumberjack封装.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/JiaHaoFang/VSLog",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "JiaHaoFang": "stephenfang@etekcity.com.cn"
+  },
+  "source": {
+    "git": "https://github.com/JiaHaoFang/VSLog.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "VSLog/Classes/**/*",
+  "dependencies": {
+    "CocoaLumberjack": [
+      "= 3.4.2"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+PODS:
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
+  - VSLog (0.1.0):
+    - CocoaLumberjack (= 3.4.2)
+
+DEPENDENCIES:
+  - VSLog (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - CocoaLumberjack
+
+EXTERNAL SOURCES:
+  VSLog:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  VSLog: 3ca9c6be72962b4a0113607863ebaf152b7cb33e
+
+PODFILE CHECKSUM: 90135242f57fd907da0da71219fcfc35a0fde6b5
+
+COCOAPODS: 1.10.1

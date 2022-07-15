@@ -1,0 +1,6 @@
+framework module Pods_VSLog_Example {
+  umbrella header "Pods-VSLog_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
