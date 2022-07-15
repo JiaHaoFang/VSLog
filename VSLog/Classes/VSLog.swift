@@ -9,7 +9,7 @@ import Foundation
 
 public final class Log {
     /// 提供默认命名空间，各业务板块需要定义自己的命名空间
-    public final class `Default`: LogProtocol { }
+    public final class Default: LogProtocol { }
     
     /// 枚举类型
     public struct Enum {
@@ -52,7 +52,7 @@ public final class Log {
 }
 
 // MARK: - OC接口扩展
-extension Log.`Default` {
+extension Log.Default {
     @objc static func debug(categoryOC: Log.Enum.OCCategory = .other,
                             _ message: String,
                             userInfo: [String: String]?,

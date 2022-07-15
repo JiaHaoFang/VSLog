@@ -93,7 +93,7 @@ extension Log.Enum.Category {
         case .crash:
             return "crash"
         case .custom(let value):
-            return value
+            return "custom_\(value)"
         }
     }
 }

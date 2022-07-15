@@ -8,8 +8,9 @@
 import Foundation
 
 public protocol LogProtocol {
+    /// 命名空间，与业务名称business对应
     static func nameSpace() -> String
-    
+        
     /// debug等级的日志
     static func debug(category: Log.Enum.Category,
                       _ message: String,

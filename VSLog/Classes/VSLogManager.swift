@@ -168,12 +168,16 @@ extension VSLogManager {
 // MARK: - 黑名单相关方法
 extension VSLogManager {
     /// 开启黑名单功能
-    public func updateDenyList(_ type: Enum.FilterListType, state: Bool) {
+    public func updateDenyList(_ types: [Enum.FilterListType], state: Bool) {
         if state == true {
-            self.allowListEnabled[type.key] = false
-            self.denyListEnabled[type.key] = true
+            types.forEach { type in
+                self.allowListEnabled[type.key] = false
+                self.denyListEnabled[type.key] = true
+            }
         } else {
-            self.denyListEnabled[type.key] = false
+            types.forEach { type in
+                self.denyListEnabled[type.key] = false
+            }
         }
     }
     
@@ -181,6 +185,7 @@ extension VSLogManager {
     public func addCategoryDenyListMember(_ value: [Log.Enum.Category]) {
         if var list = self.denyList[Enum.FilterListType.category.key] {
             list.append(contentsOf: value.map({ $0.description }).filter({ !list.contains($0) }))
+            self.denyList[Enum.FilterListType.category.key] = list
         }
     }
     
@@ -188,6 +193,7 @@ extension VSLogManager {
     public func addBusinessDenyListMember(_ value: [String]) {
         if var list = self.denyList[Enum.FilterListType.business.key] {
             list.append(contentsOf: value.map({ $0.description }).filter({ !list.contains($0) }))
+            self.denyList[Enum.FilterListType.business.key] = list
         }
     }
     

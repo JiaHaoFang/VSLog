@@ -10,9 +10,10 @@ import UIKit
 import VSLog
 
 extension Log {
-    struct AddDevice: LogProtocol {
-        
-    }
+    /// 配网组件命名空间
+    struct AddDevice: LogProtocol { }
+    /// 网络库命名空间
+    struct VSNetwork: LogProtocol { }
 }
 
 class ViewController: UIViewController {
@@ -20,9 +21,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        VSLogManager.sharedInstance().addBusinessAllowListMember([Log.AddDevice.nameSpace()])
-        VSLogManager.sharedInstance().addCategoryAllowListMember([.ble])
-        VSLogManager.sharedInstance().updateAllowList([.business, .category], state: true)
+//        VSLogManager.sharedInstance().addBusinessAllowListMember([Log.AddDevice])
+//        VSLogManager.sharedInstance().addCategoryAllowListMember([.ble])
+//        VSLogManager.sharedInstance().updateAllowList([.business, .category], state: true)
+        
+        VSLogManager.sharedInstance().addCategoryDenyListMember([.custom("other")])
+        VSLogManager.sharedInstance().addBusinessDenyListMember([Log.VSNetwork.nameSpace()])
+        VSLogManager.sharedInstance().updateDenyList([.category, .business], state: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,16 +39,16 @@ class ViewController: UIViewController {
         print(NSHomeDirectory().appending("/Documents/VSLogger"))
     }
     @IBAction func debug() {
-        Log.Default.debug("1")
+        Log.Default.debug(category: .custom("Stephen"), "1")
     }
     @IBAction func info() {
         Log.AddDevice.info(category: .ble, "来了老弟")
     }
     @IBAction func warning() {
-        Log.AddDevice.warning("来了老弟")
+        Log.VSNetwork.warning(category: .netWork, "再见走好")
     }
     @IBAction func error() {
-        Log.AddDevice.warning("来了老弟")
+        Log.Default.warning("来了老弟")
     }
     
 }
